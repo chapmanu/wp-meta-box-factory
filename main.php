@@ -1,10 +1,12 @@
 <?php
 /*
-Name: Meta Box Factory
+Framework Name: Meta Box Factory
+Plugin URI: https://github.com/chapmanuwp-meta-box-factory
 Description: A Factory for WordPress MetaBoxes
-Version: 0.1
-Author: James Kerr
+Version: 0.1.1
+Author: James Kerr, Chapman University
 Author URI: http://jameskerr.info
+License: GPLv2+
 */
 
 require_once(plugins_url( '/lib/meta-box-factory.php' , __FILE__ ));
