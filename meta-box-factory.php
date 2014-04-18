@@ -9,8 +9,8 @@ Author URI: http://jameskerr.info
 License: GPLv2+
 */
 
-require_once(plugins_url( '/lib/meta-box-factory.php' , __FILE__ ));
-require_once(plugins_url( '/boxes/sample-box-config.php' , __FILE__ ));
+require_once('lib/meta-box-factory.php');
+require_once('boxes/sample-box-config.php');
 
 function call_meta_box_factory() {
 	$sample_box_config = get_sample_box_config();

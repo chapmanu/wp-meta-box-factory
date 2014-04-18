@@ -22,7 +22,7 @@ if ( !class_exists('MetaBoxFactory') ){
     function __construct($_box) {
       $this->box = $_box;
       add_action('add_meta_boxes'   , array($this, 'add_meta_box'));
-      add_action('pre_post_update'  , array($this, 'save'));
+      add_action('pre_post_update'  , array($this, 'save'), 10, 2);
     }
 
     function add_meta_box() {
@@ -53,7 +53,7 @@ if ( !class_exists('MetaBoxFactory') ){
 
       foreach ($this->box['fields'] as $field) {
         $current_meta = get_post_meta($post->ID, $field['id'], true);
-        if ($current_meta == '') $current_meta = $field['std'];
+        if ($current_meta == '') $current_meta = @$field['std'];
 
         switch ($field['type']) {
           case 'text':
@@ -190,7 +190,7 @@ if ( !class_exists('MetaBoxFactory') ){
     }
 
     private function user_has_permission($post) {
-      $post_type = get_post_type_object( $post->post_type );
+      $post_type = get_post_type_object( $post['post_type'] );
       return ( current_user_can($post_type->cap->edit_post, $post_id) );
     }
 
