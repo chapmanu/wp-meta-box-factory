@@ -105,9 +105,7 @@ if (!class_exists('MetaBox')) {
 				if (!$this->has_screen($screen)) {
 					array_push($this->screens, $screen);
 
-					if (preg_match('/^(page|post)$/', $screen)) {
-						$this->activate_on('load-post.php', 'load-post-new.php');
-					}
+					$this->activate_on('load-post.php', 'load-post-new.php');
 				}
 			}
 
@@ -121,9 +119,7 @@ if (!class_exists('MetaBox')) {
 				if ($this->has_screen($screen)) {
 					array_splice($this->screens, array_search($screen, $this->screens, true), 1);
 
-					if (preg_match('/^(page|post)$/', $screen)) {
-						$this->activate_off('load-post.php', 'load-post-new.php');
-					}
+					$this->activate_off('load-post.php', 'load-post-new.php');
 				}
 			}
 
